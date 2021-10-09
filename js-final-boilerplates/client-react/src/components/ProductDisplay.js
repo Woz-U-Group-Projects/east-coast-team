@@ -13,8 +13,12 @@ export const ProductDisplay = () => {
                     <h3 className="col-6 text-center">Black Shirt</h3>
                 </div>
                 <div className="image row">
-                    <img src={WhiteShirt} alt="" className="col-6 text-center shirt"></img>
-                    <img src={BlackShirt} alt="" className="col-6 text-center shirt"></img>
+                    <div className="col-6 text-center">
+                        <a href='http://localhost:3000/whiteshirt'><img src={WhiteShirt} alt="" className='shirt'></img></a>
+                    </div>
+                    <div className="col-6 text-center">
+                        <a href='http://localhost:3000/blackshirt'><img src={BlackShirt} alt="" className="shirt"></img></a>
+                    </div>
                 </div>
             </div>
         </div>
