@@ -66,16 +66,10 @@
                 "updatedAt": {
                     "field": "updatedAt",
                     "seqType": "Sequelize.DATE"
-                },
-                "Admin": {
-                    "allowNull": false,
-                    "default": false,
-                    "field": "Admin",
-                    "seqType": "Sequelize.BOOLEAN"
                 }
             },
             "indexes": []
         }
     },
-    "revision": 3
+    "revision": 2
 }
