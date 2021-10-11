@@ -36,7 +36,7 @@ router.post('/signup', function (req, res, next) {
         LastName: req.body.lastName,
         Email: req.body.email,
         Password: authService.hashPassword(req.body.password),
-        Admin: req.body.Admin
+        Admin: req.body.admin
       }
     })
     .spread(function (result, created) {
