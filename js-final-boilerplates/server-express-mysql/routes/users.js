@@ -35,8 +35,7 @@ router.post('/signup', function (req, res, next) {
         FirstName: req.body.firstName,
         LastName: req.body.lastName,
         Email: req.body.email,
-        Password: authService.hashPassword(req.body.password),
-        Admin: req.body.admin
+        Password: authService.hashPassword(req.body.password) //<--- Change to this code here
       }
     })
     .spread(function (result, created) {
