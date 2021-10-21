@@ -10,7 +10,8 @@ export class Profile extends Component {
             firstName: "",
             lastName: "",
             username: "",
-            email: ""
+            email: "",
+            isLoggedIn: false
         }
     }
 
@@ -19,31 +20,47 @@ export class Profile extends Component {
         .then(response => {
             console.log(response)
             this.setState({firstName: response.data.FirstName, lastName: response.data.LastName, username: response.data.Username, email: response.data.Email})
+            this.setState({isLoggedIn: true})
         })
         .catch(error => {
             console.log(error)
         })
     }
 
-    /*componentWillUnmount(){
-        this.setState({firstName: "", lastName: "", username: "", email: ""})
-    }*/
 
     logOut = () => {
-        window.location.href="http://localhost:3000/logout"
+        axios.get('/users/logout')
+        this.setState({firstName: '', lastName: '', username: '', email: '', isLoggedIn: false})
+        window.location.href="http://localhost:3000/"
+    }
+
+    logIn = () => {
+        window.location.href="http://localhost:3000/login"
     }
     
     render() {
-        return (
-            <div>
-                <Navbar></Navbar>
-                <h1>Hello {this.state.firstName}!</h1>
-                <p>Full Name: {this.state.firstName} {this.state.lastName}</p>
-                <p>Username: {this.state.username}</p>
-                <p>Email: {this.state.email}</p>
-                <button onClick={this.logOut}>Log Out</button>
-            </div>
-        )
+        const isLoggedIn = this.state.isLoggedIn;
+        if (isLoggedIn) {
+            return (
+                <div>
+                    <Navbar></Navbar>
+                    <h1>Hello {this.state.firstName}!</h1>
+                    <p>Full Name: {this.state.firstName} {this.state.lastName}</p>
+                    <p>Username: {this.state.username}</p>
+                    <p>Email: {this.state.email}</p>
+                    <button onClick={this.logOut} type='submit' className="btn btn-primary btn-lg">Log Out</button>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div>
+                    <Navbar></Navbar>
+                    <h1>Login to access profile</h1>
+                    <button onClick={this.logIn} type='submit' className="btn btn-primary btn-lg">Return to login</button>
+                </div>
+            )
+        }
     }
 }
 

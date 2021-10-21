@@ -6,7 +6,6 @@ import Login from './Login';
 import Home from "./Home";
 import SignUp from './SignUp';
 import Profile from './Profile';
-import LogOut from './LogOut';
 import {Route, BrowserRouter as Router} from 'react-router-dom'
 
 export const Routes = () => {
@@ -20,7 +19,6 @@ export const Routes = () => {
                 <Route path='/Login' component={Login}></Route>
                 <Route path='/SignUp' component={SignUp}></Route>
                 <Route path='/profile' component={Profile}></Route>
-                <Route path='/logout' component={LogOut}></Route>
             </Router>
         </div>
     )
