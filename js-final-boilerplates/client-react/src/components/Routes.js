@@ -4,6 +4,9 @@ import WhiteShirt from "./WhiteShirt";
 import { About } from "./About";
 import Login from './Login';
 import Home from "./Home";
+import SignUp from './SignUp';
+import Profile from './Profile';
+import LogOut from './LogOut';
 import {Route, BrowserRouter as Router} from 'react-router-dom'
 
 export const Routes = () => {
@@ -15,6 +18,9 @@ export const Routes = () => {
                 <Route path='/WhiteShirt' component={WhiteShirt}></Route>
                 <Route path='/About' component={About}></Route>
                 <Route path='/Login' component={Login}></Route>
+                <Route path='/SignUp' component={SignUp}></Route>
+                <Route path='/profile' component={Profile}></Route>
+                <Route path='/logout' component={LogOut}></Route>
             </Router>
         </div>
     )

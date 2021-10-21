@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import Navbar from "./Navbar"
 import axios from "axios"
-import "../styling/Login.css"
+import "../styling/SignUp.css"
 
-export class Login extends Component {
+export class SignUp extends Component {
   constructor(props) {
     super(props)
     this.state = {
+       firstName: "",
+       lastName: "",
        username: "",
+       email: "",
        password: ""
     }
   }
@@ -19,17 +22,17 @@ export class Login extends Component {
   submitHandler = e => {
     e.preventDefault()
     console.log(this.state)
-    axios.post("/users/login", this.state)
+    axios.post("/users/signup", this.state)
       .then(response =>{
         console.log(response)
       })
       .catch(error => {
         console.log(error)
       })
-    window.location.href="http://localhost:3000/profile"
+    window.location.href="http://localhost:3000/login"
   }
   render() {
-    const { username, password } = this.state
+    const { firstName, lastName, username, email, password } = this.state
     return (
       <div>
         <Navbar></Navbar>
@@ -38,8 +41,20 @@ export class Login extends Component {
             <div className='col text-center'>
               <form onSubmit={this.submitHandler}>
                 <div className='form-group'>
+                  <input type="text" className='form-control-lg' name="firstName" value={firstName} 
+                  placeholder='First Name' onChange={this.changeHandler}></input>
+                </div>
+                <div className='form-group'>
+                  <input type="text" className='form-control-lg' name="lastName" value={lastName} 
+                  placeholder='Last Name' onChange={this.changeHandler}></input>
+                </div>
+                <div className='form-group'>
                   <input type="text" className='form-control-lg' name="username" value={username} 
                   placeholder='Username' onChange={this.changeHandler}></input>
+                </div>
+                <div className='form-group'>
+                  <input type="text" className='form-control-lg' name="email" value={email} 
+                  placeholder='email' onChange={this.changeHandler}></input>
                 </div>
                 <div className='form-group'>
                   <input type="password" className='form-control-lg' name="password" value={password} 
@@ -47,7 +62,7 @@ export class Login extends Component {
                 </div>
                 <button type='submit' className="btn btn-primary btn-lg">Submit</button>
               </form>
-              <a href='http://localhost:3000/signup'>Don't have an account? Click here to sign up!</a>
+              <a href='http://localhost:3000/login'>Already have an account? Click here to login!</a>
             </div>
           </div>
         </div>
@@ -56,4 +71,4 @@ export class Login extends Component {
   }
 }
 
-export default Login
+export default SignUp
