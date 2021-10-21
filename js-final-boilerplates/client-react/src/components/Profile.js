@@ -25,9 +25,9 @@ export class Profile extends Component {
         })
     }
 
-    componentWillUnmount(){
+    /*componentWillUnmount(){
         this.setState({firstName: "", lastName: "", username: "", email: ""})
-    }
+    }*/
 
     logOut = () => {
         window.location.href="http://localhost:3000/logout"

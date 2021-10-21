@@ -11,7 +11,7 @@ export class LogOut extends Component {
     }
 
     componentDidMount(){
-        axios.get('users.logout')
+        axios.get('users/logout')
         .then(response => {
             console.log(response)
         })
