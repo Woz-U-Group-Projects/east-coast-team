@@ -22,11 +22,11 @@ export class Login extends Component {
     axios.post("/users/login", this.state)
       .then(response =>{
         console.log(response)
+        window.location.href="http://localhost:3000/profile"
       })
       .catch(error => {
         console.log(error)
       })
-    window.location.href="http://localhost:3000/profile"
   }
   render() {
     const { username, password } = this.state
@@ -45,9 +45,9 @@ export class Login extends Component {
                   <input type="password" className='form-control-lg' name="password" value={password} 
                   placeholder='Password' onChange={this.changeHandler}></input>
                 </div>
+                <a href='http://localhost:3000/signup'>Don't have an account? Click here to sign up!</a> <br></br>
                 <button type='submit' className="btn btn-primary btn-lg">Submit</button>
               </form>
-              <a href='http://localhost:3000/signup'>Don't have an account? Click here to sign up!</a>
             </div>
           </div>
         </div>
