@@ -13,7 +13,7 @@ var app = express();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var inventoryRouter = require('./routes/inventory')
 
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'index', layoutsDir: __dirname + '/views'}));
 app.set('view engine', 'hbs');
@@ -36,6 +36,7 @@ app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/inventory', inventoryRouter)
 
 models.sequelize.sync().then(function() {
   console.log("DB Sync'd up");
