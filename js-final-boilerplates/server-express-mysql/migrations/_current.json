@@ -69,7 +69,9 @@
                 },
                 "Admin": {
                     "allowNull": false,
-                    "default": false,
+                    "defaultValue": {
+                        "value": false
+                    },
                     "field": "Admin",
                     "seqType": "Sequelize.BOOLEAN"
                 }
@@ -77,5 +79,5 @@
             "indexes": []
         }
     },
-    "revision": 3
+    "revision": 4
 }
