@@ -26,4 +26,25 @@ router.get('/whiteShirt', function (req, res, next){
       })
 })
 
+router.post('/addProduct', function (req, res, next){
+  models.product
+    .findOrCreate({
+      where: {
+        title: req.body.title
+      },
+      defaults: {
+        price: req.body.price,
+        imageUrl: req.body.imageUrl,
+        description: req.body.description
+      }
+    })
+    .spread(function (result, created) {
+      if (created) {
+        res.send('User successfully created');
+      } else {
+        res.send('This user already exists');
+      }
+    });
+})
+
 module.exports = router;
